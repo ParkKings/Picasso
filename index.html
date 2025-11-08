@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo Picasso - Artistic Legacy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <span class="years">1881 - 1973</span>
+      <h1>Pablo Picasso</h1>
+      <p>Spanish painter, sculptor, and revolutionary artist who co-founded Cubism</p>
+    </div>
+  </header>
+
+  <!-- Early Life Section -->
+  <section class="section light">
+    <div class="container">
+      <h2>Early Life & Education</h2>
+      <div class="content-grid">
+        <div class="text">
+          <p>
+            Pablo Diego José Francisco de Paula Juan Nepomuceno María de los Remedios Cipriano de la Santísima Trinidad Ruiz y Picasso was born on October 25, 1881, in Málaga, Spain. His father, Jose Ruiz, was a painter and art teacher who recognized his son's exceptional talent at an early age.
+          </p>
+          <p>
+            By age seven, Picasso began receiving formal artistic training from his father. His skills developed so rapidly that his father famously gave up his own painting, recognizing that his son had surpassed him. At just 13 years old, Picasso was admitted to the Royal Academy of San Fernando in Madrid, Spain's foremost art school.
+          </p>
+        </div>
+        <div class="facts-card">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li><strong>Born:</strong> October 25, 1881</li>
+            <li><strong>Birthplace:</strong> Málaga, Spain</li>
+            <li><strong>Died:</strong> April 8, 1973</li>
+            <li><strong>Works created:</strong> ~100,000+</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artistic Periods -->
+  <section class="section vivid">
+    <div class="container">
+      <h2>Artistic Periods</h2>
+      <div class="card-grid">
+        <div class="card blue">
+          <img src="blue-period.jpg" alt="Blue Period" />
+          <div class="card-body">
+            <span class="date">1901–1904</span>
+            <h3>Blue Period</h3>
+            <p>
+              Following the suicide of his close friend Carlos Casagemas, Picasso entered a somber phase. His paintings featured predominantly blue and blue-green tones, depicting themes of poverty, loneliness, and despair.
+            </p>
+          </div>
+        </div>
+
+        <div class="card rose">
+          <img src="rose-period.jpg" alt="Rose Period" />
+          <div class="card-body">
+            <span class="date">1904–1906</span>
+            <h3>Rose Period</h3>
+            <p>
+              As Picasso found love with Fernande Olivier, his palette warmed with cheerful oranges and pinks. This period featured circus performers, harlequins, and acrobats, reflecting his renewed joy.
+            </p>
+          </div>
+        </div>
+
+        <div class="card cubism">
+          <img src="cubism-period.jpg" alt="Cubism" />
+          <div class="card-body">
+            <span class="date">1907–1919</span>
+            <h3>Cubism</h3>
+            <p>
+              Picasso co-founded Cubism with Georges Braque, revolutionizing art by fragmenting objects into geometric shapes and showing multiple perspectives simultaneously.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legacy -->
+  <section class="section light">
+    <div class="container">
+      <h2>Legacy & Impact</h2>
+      <p>
+        Picasso remains one of the most influential artists of the 20th century, having created an estimated 50,000 artworks including paintings, sculptures, ceramics, and prints. His innovations in Cubism changed how we perceive art forever.
+      </p>
+      <blockquote>
+        “Every child is an artist. The problem is how to remain an artist once we grow up.”
+        <span>— Pablo Picasso</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <p>BY THE AMAZING PHILIPPOS AND MPRAZIOTHS</p>
+  </footer>
+  <!-- Can you put some music playing in the back. Vivaldi winter would be perfect -->
+  <audio id="background-music" src="Classicals.de-Vivaldi-The-Four-Seasons-01-John-Harrison-with-the-Wichita-State-University-Chamber-Players-Spring-Mvt-1-Allegro.mp3" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    // Ask user for consent before playing background music
+    document.addEventListener("DOMContentLoaded", function () {
+      var music = document.getElementById("background-music");
+      if (music) {
+        // Pause music at start
+        music.pause();
+        music.currentTime = 0;
+        // Create a modal consent dialog
+        var modal = document.createElement("div");
+        modal.style.position = "fixed";
+        modal.style.top = 0;
+        modal.style.left = 0;
+        modal.style.width = "100vw";
+        modal.style.height = "100vh";
+        modal.style.background = "rgba(0,0,0,0.53)";
+        modal.style.display = "flex";
+        modal.style.alignItems = "center";
+        modal.style.justifyContent = "center";
+        modal.style.zIndex = 9999;
+
+        var box = document.createElement("div");
+        box.style.background = "#fff";
+        box.style.borderRadius = "16px";
+        box.style.padding = "2em 2.5em";
+        box.style.boxShadow = "0 8px 32px rgba(0,0,0,0.18)";
+        box.style.textAlign = "center";
+        box.innerHTML = "<h3 style='margin-top:0;color:#1e40af'>Allow background music?</h3><p>This website would like to play Vivaldi: Winter in the background.<br>Do you want to enable the music?</p>";
+
+        var btnAccept = document.createElement("button");
+        btnAccept.textContent = "Allow";
+        btnAccept.style.margin = "1em 0.5em 0 0";
+        btnAccept.style.padding = "0.6em 1.5em";
+        btnAccept.style.background = "#1e40af";
+        btnAccept.style.color = "#fff";
+        btnAccept.style.border = "none";
+        btnAccept.style.fontWeight = "bold";
+        btnAccept.style.borderRadius = "8px";
+        btnAccept.style.cursor = "pointer";
+
+        var btnDecline = document.createElement("button");
+        btnDecline.textContent = "No, thanks";
+        btnDecline.style.margin = "1em 0 0 0.5em";
+        btnDecline.style.padding = "0.6em 1.5em";
+        btnDecline.style.background = "#f97316";
+        btnDecline.style.color = "#fff";
+        btnDecline.style.border = "none";
+        btnDecline.style.fontWeight = "bold";
+        btnDecline.style.borderRadius = "8px";
+        btnDecline.style.cursor = "pointer";
+
+        // When user gives permission
+        btnAccept.onclick = function () {
+          music.volume = 0.5;
+          music.play().catch(()=>{});
+          document.body.removeChild(modal);
+        };
+        btnDecline.onclick = function () {
+          music.pause();
+          music.currentTime = 0;
+          document.body.removeChild(modal);
+        };
+
+        box.appendChild(btnAccept);
+        box.appendChild(btnDecline);
+        modal.appendChild(box);
+        document.body.appendChild(modal);
+      }
+    });
+  </script>
+  </script>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
