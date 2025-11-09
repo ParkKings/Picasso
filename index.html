@@ -101,19 +101,21 @@
   <footer>
     <p>BY THE AMAZING PHILIPPOS AND MPRAZIOTHS</p>
   </footer>
-  <!-- Can you put some music playing in the back. Vivaldi winter would be perfect -->
-  <audio id="background-music" src="Classicals.de-Vivaldi-The-Four-Seasons-01-John-Harrison-with-the-Wichita-State-University-Chamber-Players-Spring-Mvt-1-Allegro.mp3" autoplay loop>
+  <audio id="background-music" src="06 - Sweet Dreams (Are Made of This) (2005 Remaster).mp3" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="background-music1" src="Recording (9).m4a" autoplay loop>
     Your browser does not support the audio element.
   </audio>
   <script>
-    // Ask user for consent before playing background music
     document.addEventListener("DOMContentLoaded", function () {
       var music = document.getElementById("background-music");
-      if (music) {
-        // Pause music at start
+      var music1 = document.getElementById("background-music1");
+      if (music && music1) {
         music.pause();
         music.currentTime = 0;
-        // Create a modal consent dialog
+        music1.pause();
+        music1.currentTime = 0;
         var modal = document.createElement("div");
         modal.style.position = "fixed";
         modal.style.top = 0;
@@ -156,15 +158,20 @@
         btnDecline.style.borderRadius = "8px";
         btnDecline.style.cursor = "pointer";
 
-        // When user gives permission
         btnAccept.onclick = function () {
-          music.volume = 0.5;
+          music.volume = 0.1;
           music.play().catch(()=>{});
+          document.body.removeChild(modal);
+          music1.volume = 1;
+          music1.play().catch(()=>{});
           document.body.removeChild(modal);
         };
         btnDecline.onclick = function () {
           music.pause();
           music.currentTime = 0;
+          document.body.removeChild(modal);
+          music1.pause();
+          music1.currentTime = 0;
           document.body.removeChild(modal);
         };
 
@@ -174,7 +181,6 @@
         document.body.appendChild(modal);
       }
     });
-  </script>
   </script>
   
 
