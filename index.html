@@ -49,7 +49,7 @@
       <h2>Artistic Periods</h2>
       <div class="card-grid">
         <div class="card blue">
-          <img src="blue-period.jpg" alt="Blue Period" />
+          <img src="blue-period.jpg" onclick="Meow_Meow()" alt="Blue Period" />
           <div class="card-body">
             <span class="date">1901–1904</span>
             <h3>Blue Period</h3>
@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <div class="card rose">
+        <div class="card rose" onclick="RomanticSong()">
           <img src="rose-period.jpg" alt="Rose Period" />
           <div class="card-body">
             <span class="date">1904–1906</span>
@@ -104,14 +104,21 @@
   <audio id="background-music" src="06 - Sweet Dreams (Are Made of This) (2005 Remaster).mp3" autoplay loop>
     Your browser does not support the audio element.
   </audio>
-  <audio id="background-music1" src="Recording (9).m4a" autoplay loop>
+  <audio id="background-music1" src="Recording (20).m4a" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="background-music2" src="meow-meow-meow-tiktok.mp3" autoplay loop volume="0">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="background-music3" src="tonight-the-music-seems-so-loud.mp3" autoplay loop volume="0">
     Your browser does not support the audio element.
   </audio>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var music = document.getElementById("background-music");
       var music1 = document.getElementById("background-music1");
-      if (music && music1) {
+      var music2 = document.getElementById("background-music2");
+      if (music || music1) {
         music.pause();
         music.currentTime = 0;
         music1.pause();
@@ -158,14 +165,17 @@
         btnDecline.style.borderRadius = "8px";
         btnDecline.style.cursor = "pointer";
 
+
         btnAccept.onclick = function () {
-          music.volume = 0.5;
-          music.play().catch(()=>{});
-          document.body.removeChild(modal);
+          music.volume = 1;
           music1.volume = 1;
+
+          music.play().catch(()=>{});
           music1.play().catch(()=>{});
+
           document.body.removeChild(modal);
         };
+
         btnDecline.onclick = function () {
           music.pause();
           music.currentTime = 0;
@@ -187,4 +197,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
